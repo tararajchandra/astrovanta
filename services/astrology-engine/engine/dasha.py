@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from typing import List
-from ..models.chart import DashaPeriod, BirthData
-from .kundli import calculate_kundli
+from models.chart import DashaPeriod, BirthData
+from engine.kundli import calculate_kundli
 
 # Vimshottari sequence and duration in years
 DASHA_SEQUENCE = [

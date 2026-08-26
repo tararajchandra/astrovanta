@@ -1,5 +1,5 @@
-from .ephemeris import set_ayanamsha, get_julian_day, get_planet_positions, get_houses_and_ascendant
-from ..models.chart import ChartData, PlanetPosition, HouseCusp, BirthData
+from engine.ephemeris import set_ayanamsha, get_julian_day, get_planet_positions, get_houses_and_ascendant
+from models.chart import ChartData, PlanetPosition, HouseCusp, BirthData
 
 def calculate_kundli(birth_data: BirthData) -> ChartData:
     set_ayanamsha(birth_data.ayanamsha)

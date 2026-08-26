@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from ..models.chart import BirthData, ChartData, DashaPeriod
-from ..engine.kundli import calculate_kundli
-from ..engine.dasha import calculate_vimshottari_dasha
+from models.chart import BirthData, ChartData, DashaPeriod
+from engine.kundli import calculate_kundli
+from engine.dasha import calculate_vimshottari_dasha
 from typing import List
 
 router = APIRouter(prefix="/api/v1/astrology", tags=["Astrology"])
