@@ -41,6 +41,8 @@ services:
         sync: false
       - key: VITE_SUPABASE_ANON_KEY
         sync: false
+      - key: VITE_ASTROLOGER_EMAIL
+        sync: false
       - key: VITE_API_URL
         fromService:
           type: web
