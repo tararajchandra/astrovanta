@@ -26,9 +26,9 @@ services:
   - type: web
     name: astrovanta-web
     env: static
-    rootDir: .
-    buildCommand: npm install && npm run build -w apps/web
-    staticPublishPath: apps/web/dist
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
     envVars:
       - key: NODE_VERSION
         value: 20
