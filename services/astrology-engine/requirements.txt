@@ -1,0 +1,4 @@
+pyswisseph
+pydantic
+fastapi
+uvicorn[standard]

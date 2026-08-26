@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./services/api
+    container_name: astrovanta_fastapi
+    environment:
+      - SUPABASE_URL=${VITE_SUPABASE_URL}
+      - SUPABASE_KEY=${VITE_SUPABASE_SERVICE_ROLE_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/api:/app
+    restart: unless-stopped

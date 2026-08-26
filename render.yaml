@@ -1,0 +1,39 @@
+services:
+  # Backend API
+  - type: web
+    name: astrovanta-api
+    env: python
+    rootDir: services/api
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  # Astrology Engine
+  - type: web
+    name: astrovanta-astrology-engine
+    env: python
+    rootDir: services/astrology-engine
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+  # Frontend Web App
+  - type: web
+    name: astrovanta-web
+    env: static
+    rootDir: apps/web
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: astrovanta-api
+          envVarKey: RENDER_EXTERNAL_URL
